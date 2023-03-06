@@ -1,0 +1,8 @@
+li a {
+    color: green;
+}
+
+body {
+    background: white url("images/django-python.png") no-repeat center/10%;
+    background-position: center;
+}
