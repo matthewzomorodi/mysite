@@ -10,3 +10,6 @@ class Client(models.Model):
                                     max_length=15,
                                     blank=True,
                                     validators =[validate_phone_number])
+    
+    def __str__(self):
+        return self.first_name + " " + self.last_name
