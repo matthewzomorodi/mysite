@@ -1,6 +1,12 @@
 {% extends "polls/base.html" %}
 
+{% load static %}
+
 {% block title %}New Client{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'polls/new_client.js' %}"></script>
+{% endblock %}
 
 {% block body %}
 <form name="new-client-form" action="{% url 'polls:new_client' %}" method="post">
@@ -11,14 +17,14 @@
         <p><strong>{{ error_message }}</strong></p>
         {% endif %}
         <label for="client-first-name">First Name: </label>
-        <input id="client-first-name" type="text" name="first-name">
+        <input id="client-first-name" type="text" name="first-name" required autofocus>
         <label for="client-last-name">Last Name: </label>
-        <input id="client-last-name" type="text" name="last-name">
+        <input id="client-last-name" type="text" name="last-name" required>
         <label for="client-email">Email: </label>
         <input id="client-email" type="email" name="email">
         <label for="client-phone">Phone Number: </label>
-        <input id="client-phone" type="tel" name="phone">
+        <input id="client-phone" type="tel" name="phone" placeholder="###-###-####">
     </fieldset>
-    <input type="submit" name="submit-new-client" value="Add New Client">
+    <input type="submit" name="submit-new-client" value="Add New Client" onclick="sendmsg()">
 </form>
 {% endblock %}
