@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <title>New Client</title>
+    </head>
+    <body>
+        <form name="new-client-form" action="{% url 'polls:new_client' %}" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend><h1>Add New Client</h1></legend>
+                {% if error_message %}
+                <p><strong>{{ error_message }}</strong></p>
+                {% endif %}
+                <label for="client-first-name">First Name: </label>
+                <input id="client-first-name" type="text" name="first-name">
+                <label for="client-last-name">Last Name: </label>
+                <input id="client-last-name" type="text" name="last-name">
+                <label for="client-email">Email: </label>
+                <input id="client-email" type="email" name="email">
+                <label for="client-phone">Phone Number: </label>
+                <input id="client-phone" type="tel" name="phone">
+            </fieldset>
+            <input type="submit" name="submit-new-client" value="Add New Client">
+        </form>
+    </body>
+</html>
