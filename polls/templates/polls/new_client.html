@@ -5,11 +5,13 @@
 {% block title %}New Client{% endblock %}
 
 {% block scripts %}
-    <script src="{% static 'polls/new_client.js' %}"></script>
+    <script src="{% static 'polls/libs/jquery-3.6.3.min.js' %}"></script>
+    <!-- <script src="{% static 'polls/new_client.js' %}"></script> -->
 {% endblock %}
 
 {% block body %}
-<form name="new-client-form" action="{% url 'polls:new_client' %}" method="post">
+<form id="new-client-form" action="{% url 'polls:new_client' %}" method="post">
+<!-- <form id="new-client-form" action="" method="post"> -->
     {% csrf_token %}
     <fieldset>
         <legend><h1>Add New Client</h1></legend>
@@ -17,14 +19,14 @@
         <p><strong>{{ error_message }}</strong></p>
         {% endif %}
         <label for="client-first-name">First Name: </label>
-        <input id="client-first-name" type="text" name="first-name" required autofocus>
+        <input id="client-first-name" type="text" name="client_first_name" required autofocus>
         <label for="client-last-name">Last Name: </label>
-        <input id="client-last-name" type="text" name="last-name" required>
+        <input id="client-last-name" type="text" name="client_last_name" required>
         <label for="client-email">Email: </label>
-        <input id="client-email" type="email" name="email">
+        <input id="client-email" type="email" name="client_email">
         <label for="client-phone">Phone Number: </label>
-        <input id="client-phone" type="tel" name="phone" placeholder="###-###-####">
+        <input id="client-phone" type="tel" name="client_phone" placeholder="###-###-####">
     </fieldset>
-    <input type="submit" name="submit-new-client" value="Add New Client" onclick="sendmsg()">
+    <input type="submit" name="submit-new-client" value="Add New Client"">
 </form>
 {% endblock %}

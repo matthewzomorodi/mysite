@@ -1,9 +1,10 @@
-function sendmsg() {
-    window.alert(document.cookie);
+$(document).ready(function(){
+    $("#new-client-form").submit(function(event){
 
-    const new_client_request = new XMLHttpRequest();
+        const formData = $(this).serialize();
 
-    new_client_request.onload = function() {
-    
-    }
-}
+        console.log(formData);
+        event.preventDefault();
+
+    });
+});
