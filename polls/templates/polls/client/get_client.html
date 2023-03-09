@@ -1,50 +1,47 @@
 {% extends "polls/base.html" %}
 
-{% load static %}
-
-{% block title %}Add Client{% endblock %}
-
-{% block scripts %}
-    <!-- <script src="{% static 'polls/libs/jquery-3.6.3.min.js' %}"></script> -->
-    <!-- <script src="{% static 'polls/new_client.js' %}"></script> -->
-{% endblock %}
+{% block title %}Get Client{% endblock %}
 
 {% block content %}
-<form id="new-client-form" action="{% url 'polls:add_client' %}" method="post">
+<form id="get-client-form" action="{% url 'polls:get_client' %}" method="get">
     {% csrf_token %}
     <fieldset>
-        <legend><h1>Add New Client</h1></legend>
+        <legend><h1>Get Client</h1></legend>
         {% if error_message %}
         <p><strong>{{ error_message }}</strong></p>
         {% endif %}
         <label for="in-client-first-name">First Name: </label>
         <input
+            autofocus="True"
             id="in-client-first-name"
-            type="text"
             name="client_first_name"
             required
-            autofocus="True">
+            readonly
+            type="text">
 
         <label for="in-client-last-name">Last Name: </label>
         <input
             id="in-client-last-name"
-            type="text"
             name="client_last_name"
-            required>
+            required
+            readonly
+            type="text">
 
         <label for="in-client-email">Email: </label>
         <input
             id="in-client-email"
-            type="email"
-            name="client_email">
+            name="client_email"
+            readonly
+            type="email">
 
         <label for="in-client-phone">Phone Number: </label>
         <input
             id="in-client-phone"
-            type="tel"
             name="client_phone"
-            placeholder="###-###-####">
-            
+            placeholder="###-###-####"
+            readonly
+            type="tel">
+
     </fieldset>
     <input id="btn-new-client" type="submit" name="submit-new-client" value="Add New Client">
     <!-- <button type="button" onclick="tellme('something')">Tell Me!</button> -->

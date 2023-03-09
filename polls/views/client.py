@@ -59,16 +59,16 @@ def get_client(request, client_id):
         case 'DELETE':
             # Delete the client with the specified id, if exists
             context['client_id'] = '300'
-            return render(request, 'polls/client/client.html', context)
+            return render(request, 'polls/client/get_client.html', context)
         
         case 'GET':
             # Get the client with the specified id, if it exists
-            return render(request, 'polls/client/client.html', context)
+            return render(request, 'polls/client/get_client.html', context)
         
         case 'POST':
             # Update the client with the specified id, if it exists
             context['client_id'] = '100'
-            return render(request, 'polls/client/client.html', context)
+            return render(request, 'polls/client/get_client.html', context)
         
         case _:
             context['status_code'] = '405 Method Not Allowed'

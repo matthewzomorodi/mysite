@@ -2,7 +2,7 @@
 
 {% block title %}Question {{ question.id }}{% endblock %}
 
-{% block body %}
+{% block content %}
 <form action="{% url 'polls:vote' question.id %}" method="post">
     {% csrf_token %}
     <fieldset>
