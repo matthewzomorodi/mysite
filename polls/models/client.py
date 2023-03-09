@@ -1,8 +1,10 @@
 from django.db import models
 from .validators import validate_phone_number
 
+import uuid
+
 class Client(models.Model):
-    client_id = models.AutoField(primary_key=True)
+    client_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     first_name = models.CharField("First Name", max_length=50)
     last_name = models.CharField("Last Name", max_length=75)
     email = models.EmailField("Email", max_length=254, blank=True, null=True)
