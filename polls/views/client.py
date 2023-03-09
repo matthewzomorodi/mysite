@@ -8,7 +8,7 @@ def new_client(request):
         print('DEBUG=> views.client.new_client: method==GET')
 
         context = {}
-        return render(request, 'polls/new_client.html', context)
+        return render(request, 'polls/client/new_client.html', context)
     
     if request.method == 'POST':
         print('DEBUG=> views.client.new_client: method==POST')
@@ -18,4 +18,4 @@ def new_client(request):
             print('DEBUG=> views.client.new_client: type(val)==' + str(type(val)))
 
         context = {}
-        return render(request, 'polls/new_client.html', context)
+        return render(request, 'polls/client/new_client.html', context)
