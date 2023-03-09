@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}New Client{% endblock %}
+{% block title %}Add Client{% endblock %}
 
 {% block scripts %}
     <!-- <script src="{% static 'polls/libs/jquery-3.6.3.min.js' %}"></script> -->
@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block body %}
-<form id="new-client-form" action="{% url 'polls:new_client' %}" method="post">
+<form id="new-client-form" action="{% url 'polls:add_client' %}" method="post">
     {% csrf_token %}
     <fieldset>
         <legend><h1>Add New Client</h1></legend>

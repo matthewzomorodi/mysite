@@ -12,6 +12,8 @@ urlpatterns = [
     path('<int:question_id>/results/', views.question.results, name='results'),
     # ex: /polls/5/vote/
     path('<int:question_id>/vote/', views.question.vote, name='vote'),
-    # ex: /new-client
-    path('new-client/', views.client.new_client, name="new_client")
+    # ex: /new-client/
+    path('add-client/', views.client.add_client, name="add_client"),
+    # ex: /client/1/
+    path('get-client/<int:client_id>/', views.client.get_client, name="get_client")
 ]
