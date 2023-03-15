@@ -14,7 +14,7 @@ $(document).ready(function(){
             success: function(response){
                 alert("Form submitted!");
                 alert("success.response==" + response);
-                location.reload();
+                $("html").html(response);
             },
             error: function(response){
                 alert("Form submission failed.");
