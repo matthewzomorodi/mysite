@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from ..models.client import Client
@@ -15,13 +16,14 @@ def add_client(request):
         
         case 'POST':
             # Create a new client
-            print('DEBUG=> views.client.new_client: POST items:')
+            print('DEBUG=> views.client.add_client: POST items:')
             for key, val in request.POST.items():
-                print('DEBUG=> views.client.new_client: key==' + key)
-                print('DEBUG=> views.client.new_client: val==' + str(val))
-                print('DEBUG=> views.client.new_client: type(val)==' + str(type(val)))
+                print('DEBUG=> views.client.add_client: key==' + key)
+                print('DEBUG=> views.client.add_client: val==' + str(val))
+                print('DEBUG=> views.client.add_client: type(val)==' + str(type(val)))
             
-            return render(request, 'polls/client/add_client.html', context)
+            # return render(request, 'polls/client/add_client.html', context)
+            return HttpResponse('All good.')
         
         case _:
             context['status_code'] = '405 Method Not Allowed'
